@@ -3,241 +3,261 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TRUMP GÉNÉRATOR - Custom Edition</title>
+    <title>THE TRUMP TOWER OF TRUTH</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@700&family=Roboto+Condensed:wght@400;700&display=swap');
+
         :root {
-            --trump-red: #e61b23;
-            --trump-blue: #002868;
-            --bg-gray: #f4f4f4;
+            --trump-red: #cc0000;
+            --trump-blue: #002147;
+            --gold: #d4af37;
+            --steel: #2c3e50;
         }
 
         body {
-            font-family: 'Arial Black', sans-serif;
-            background-color: var(--bg-gray);
+            background: radial-gradient(circle at center, #1a2a6c, #b21f1f, #fdbb2d); /* Dégradé Patriotique */
+            background-attachment: fixed;
+            color: white;
+            font-family: 'Roboto Condensed', sans-serif;
+            margin: 0;
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding: 20px;
+            min-height: 100vh;
         }
 
-        .header { text-align: center; margin-bottom: 20px; }
-        .header h1 { background: black; color: white; padding: 10px 40px; margin: 0; font-size: 2.5rem; }
-        .header .sub { border-top: 2px solid black; border-bottom: 2px solid black; padding: 5px; font-style: italic; letter-spacing: 5px; }
+        .tv-header {
+            background: linear-gradient(90deg, var(--trump-blue) 0%, var(--trump-red) 100%);
+            width: 100%;
+            padding: 15px 0;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+            border-bottom: 5px solid var(--gold);
+        }
+
+        .tv-header h1 {
+            margin: 0;
+            font-family: 'Oswald', sans-serif;
+            font-size: 3.5rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            text-shadow: 3px 3px 0px #000;
+        }
 
         .main-container {
             display: flex;
-            max-width: 1100px;
-            background: white;
-            border: 1px solid #ccc;
-            padding: 20px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            max-width: 1200px;
+            width: 95%;
+            margin: 40px auto;
+            gap: 20px;
+            background: rgba(0,0,0,0.8);
+            padding: 30px;
+            border-radius: 15px;
+            border: 2px solid var(--gold);
         }
 
-        .portrait-zone { flex: 0 0 250px; display: flex; align-items: flex-end; }
-        .portrait-zone img { width: 100%; filter: contrast(1.1); }
+        .portrait-zone {
+            flex: 1;
+            text-align: center;
+        }
+
+        .portrait-zone img {
+            width: 100%;
+            max-width: 300px;
+            border-radius: 10px;
+            border: 4px solid white;
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.5);
+        }
+
+        .content-zone {
+            flex: 2;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
 
         .speech-bubble {
-            flex: 1;
-            border: 3px solid black;
-            border-radius: 20px;
-            padding: 25px;
-            margin: 0 20px;
-            position: relative;
             background: white;
+            color: #111;
+            padding: 30px;
+            border-radius: 15px;
             font-family: 'Georgia', serif;
-            font-size: 1.3rem;
+            font-size: 1.8rem;
             line-height: 1.4;
-            display: flex;
-            align-items: center;
-            min-height: 200px;
-        }
-
-        .speech-bubble::before {
-            content: "";
-            position: absolute;
-            left: -20px;
-            bottom: 30px;
-            border-width: 10px 20px 10px 0;
-            border-style: solid;
-            border-color: transparent black transparent transparent;
+            min-height: 150px;
+            position: relative;
+            box-shadow: inset 0 0 10px rgba(0,0,0,0.1);
+            border-left: 10px solid var(--trump-red);
         }
 
         .controls {
-            flex: 0 0 300px;
-            padding-left: 20px;
-            border-left: 1px solid #eee;
-            font-family: Arial, sans-serif;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            background: #222;
+            padding: 20px;
+            border-radius: 10px;
         }
 
-        .control-group { margin-bottom: 12px; }
-        .control-group label { display: block; font-size: 0.7rem; font-weight: bold; color: var(--trump-red); text-transform: uppercase; margin-bottom: 3px; }
+        .control-group label {
+            display: block;
+            color: var(--gold);
+            font-size: 0.8rem;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
 
         select {
             width: 100%;
-            padding: 8px;
-            border: 1px solid #ccc;
-            font-size: 0.85rem;
-            background: #fff;
-            cursor: pointer;
+            padding: 10px;
+            background: #444;
+            color: white;
+            border: 1px solid var(--gold);
+            font-size: 0.9rem;
         }
 
-        .buttons { margin-top: 20px; display: flex; gap: 10px; width: 100%; max-width: 400px; }
-        button { padding: 15px; font-weight: bold; cursor: pointer; border: none; border-radius: 5px; text-transform: uppercase; flex: 1; }
-        .btn-random { background-color: var(--trump-red); color: white; }
-        .btn-copy { background-color: #333; color: white; }
+        .action-btns {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        button {
+            flex: 1;
+            padding: 20px;
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.5rem;
+            cursor: pointer;
+            border: none;
+            text-transform: uppercase;
+            transition: 0.2s;
+        }
+
+        .btn-generate { background: var(--trump-red); color: white; box-shadow: 0 5px 0 #800; }
+        .btn-generate:hover { background: #ff0000; }
+        .btn-generate:active { transform: translateY(3px); box-shadow: 0 2px 0 #800; }
+
+        .btn-copy { background: var(--gold); color: black; }
+
+        .ticker {
+            position: fixed;
+            bottom: 0;
+            background: var(--trump-blue);
+            color: white;
+            width: 100%;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+            border-top: 3px solid var(--gold);
+        }
+
+        .ticker-wrap { display: flex; animation: ticker 30s linear infinite; white-space: nowrap; }
+        .ticker-item { padding: 0 50px; font-size: 1.2rem; font-weight: bold; }
+
+        @keyframes ticker {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
     </style>
 </head>
 <body>
 
-    <div class="header">
-        <h1>DONALD TRUMP</h1>
-        <div class="sub">GÉNÉRATOR</div>
+<div class="tv-header">
+    <h1>THE TRUMP GENERATOR 2026</h1>
+</div>
+
+<div class="main-container">
+    <div class="portrait-zone">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/5/56/Donald_Trump_official_portrait.jpg" alt="Trump">
     </div>
 
-    <div class="main-container">
-        <div class="portrait-zone">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Donald_Trump_official_portrait.jpg/250px-Donald_Trump_official_portrait.jpg" alt="Trump">
-        </div>
-
+    <div class="content-zone">
         <div class="speech-bubble" id="output">
-            « Sélectionnez des options pour construire une vérité incroyable ! »
+            « Cliquez pour générer une déclaration historique, magnifique, absolument fantastique ! »
         </div>
 
         <div class="controls">
-            <h3 style="font-size: 0.9rem; margin-top: 0; color: var(--trump-blue);">RECETTE MAGA</h3>
-            
             <div class="control-group">
-                <label>1. L'EGO (L'Accroche)</label>
-                <select id="sel1" onchange="updatePhrase()">
-                    <option value="Personne ne connaît mieux le business que moi,">Le business</option>
-                    <option value="C'est la plus grande audience de l'histoire,">L'audience</option>
-                    <option value="Tout le monde le dit, je suis un génie très stable,">Le génie stable</option>
-                    <option value="J'ai construit des choses incroyables, les plus belles,">Les constructions</option>
-                    <option value="Regardez ce que j'ai fait avec l'économie, c'est un miracle,">L'économie</option>
-                    <option value="Mes sondages sont les plus hauts de l'histoire,">Les sondages</option>
-                    <option value="J'ai gagné deux fois, et la deuxième fois était encore mieux,">Les victoires</option>
-                    <option value="Personne n'a jamais vu de tels chiffres, c'est du jamais vu,">Les chiffres</option>
-                    <option value="Les experts disent que je suis le meilleur président depuis Lincoln,">Lincoln</option>
-                    <option value="Je connais les frontières mieux que les généraux,">Les frontières</option>
-                    <option value="Mon Oncle était un grand professeur au MIT, j'ai de bons gènes,">Les gènes</option>
-                    <option value="J'ai fait plus pour la communauté noire que n'importe qui,">Communauté noire</option>
-                    <option value="On a eu les plus grandes baisses d'impôts de l'histoire,">Impôts</option>
-                    <option value="Je pourrais arrêter cette guerre en 24 heures,">Guerre 24h</option>
-                    <option value="Mes meetings sont remplis, il y a des milliers de gens dehors,">Meetings</option>
-                    <option value="J'ai un instinct incroyable pour ces choses-là,">L'instinct</option>
-                    <option value="Personne n'a jamais été traité aussi injustement que moi,">Injustice</option>
-                    <option value="J'ai les meilleures propriétés, les meilleurs golfs du monde,">Les Golfs</option>
-                    <option value="On a reconstruit notre armée comme personne ne l'avait fait,">L'Armée</option>
-                    <option value="J'ai écrit 'The Art of the Deal', c'est le livre numéro 1,">The Art of the Deal</option>
-                </select>
+                <label>1. LE PRÉAMBULE (L'EGO)</label>
+                <select id="s1" onchange="manualUpdate()"></select>
             </div>
-
             <div class="control-group">
-                <label>2. LA CIBLE (L'Ennemi)</label>
-                <select id="sel2" onchange="updatePhrase()">
-                    <option value="les Fake News Media sont les ennemis du peuple,">Fake News</option>
-                    <option value="les démocrates radicaux veulent tout brûler,">Démocrates radicaux</option>
-                    <option value="le Deep State essaie de nous voler notre pays,">Deep State</option>
-                    <option value="les pays qui nous volent nos jobs et notre argent,">Jobs volés</option>
-                    <option value="la Chine nous a arnaqué pendant des décennies,">Chine</option>
-                    <option value="ces gens de Washington qui ne savent pas travailler,">Gens de Washington</option>
-                    <option value="les médias corrompus qui cachent la vérité,">Médias corrompus</option>
-                    <option value="les politiciens de bas étage qui nous détestent,">Politiciens</option>
-                    <option value="les pays qui envoient leurs pires éléments chez nous,">Immigration</option>
-                    <option value="ces juges corrompus qui font de la politique,">Juges</option>
-                    <option value="les mondialistes qui veulent détruire nos frontières,">Mondialistes</option>
-                    <option value="Sleepy Joe et sa bande de perdants,">Sleepy Joe</option>
-                    <option value="les élites qui pensent qu'elles sont meilleures que vous,">Les élites</option>
-                    <option value="la gauche woke qui veut effacer notre histoire,">Gauche Woke</option>
-                    <option value="les cartels qui s'enrichissent grâce à la faiblesse,">Les cartels</option>
-                    <option value="ceux qui ont truqué l'élection, nous le savons tous,">Élection truquée</option>
-                    <option value="les bureaucrates qui n'ont jamais rien construit,">Bureaucrates</option>
-                    <option value="les pays de l'OTAN qui ne paient pas leur part,">OTAN</option>
-                    <option value="les journalistes de CNN qui ne racontent que des mensonges,">CNN</option>
-                    <option value="les activistes qui veulent abolir la police,">Activistes</option>
-                </select>
+                <label>2. LA CIBLE (L'ENNEMI)</label>
+                <select id="s2" onchange="manualUpdate()"></select>
             </div>
-
             <div class="control-group">
-                <label>3. LE DRAME (Le Problème)</label>
-                <select id="sel3" onchange="updatePhrase()">
-                    <option value="c'est une catastrophe totale pour l'Amérique !">Catastrophe</option>
-                    <option value="ils font une chasse aux sorcières jamais vue !">Chasse aux sorcières</option>
-                    <option value="c'est très injuste, vraiment terrible pour nous tous.">Très injuste</option>
-                    <option value="ils n'ont aucune idée de ce qu'ils font, c'est pathétique.">Pathétique</option>
-                    <option value="ils essaient de nous faire taire, mais on ne lâchera rien !">Museler</option>
-                    <option value="c'est une honte absolue, le monde entier se moque de nous.">La honte</option>
-                    <option value="ils détruisent le rêve américain sous nos yeux !">Rêve détruit</option>
-                    <option value="c'est un désastre comme on n'en a jamais vu auparavant.">Désastre</option>
-                    <option value="ils veulent transformer notre pays en pays du tiers-monde.">Tiers-monde</option>
-                    <option value="ils sont en panique totale parce que nous gagnons !">Panique</option>
-                    <option value="c'est une ingérence électorale de bas niveau.">Ingérence</option>
-                    <option value="ils sont très faibles et très stupides, franchement.">Faibles et stupides</option>
-                    <option value="c'est une insulte à notre Constitution et à nos lois.">Insulte</option>
-                    <option value="ils nous ont volé notre futur, mais on va le reprendre !">Futur volé</option>
-                    <option value="c'est le plus grand crime de l'histoire de notre pays.">Crime historique</option>
-                    <option value="ils détestent notre drapeau et tout ce qu'on représente.">Drapeau</option>
-                    <option value="ils préfèrent aider les étrangers que nos propres citoyens.">Étrangers d'abord</option>
-                    <option value="c'est un spectacle triste et embarrassant pour nous.">Embarrassant</option>
-                    <option value="ils ne peuvent pas gagner honnêtement, alors ils trichent.">Tricherie</option>
-                    <option value="c'est une attaque directe contre notre démocratie.">Attaque</option>
-                </select>
+                <label>3. LE DRAME (LE PROBLÈME)</label>
+                <select id="s3" onchange="manualUpdate()"></select>
             </div>
-
             <div class="control-group">
-                <label>4. LE FINAL (Le Slogan)</label>
-                <select id="sel4" onchange="updatePhrase()">
-                    <option value="Triste !">Triste !</option>
-                    <option value="MAGA !">MAGA !</option>
-                    <option value="AMERICA FIRST !">America First !</option>
-                    <option value="ON VA GAGNER !">On va gagner !</option>
-                    <option value="VRAIMENT TERRIBLE !">Terrible !</option>
-                    <option value="INCROYABLE !">Incroyable !</option>
-                    <option value="TOTAL DÉSASTRE !">Désastre !</option>
-                    <option value="TRÈS INJUSTE !">Injuste !</option>
-                    <option value="GROS SUCCÈS !">Succès !</option>
-                    <option value="ILS SONT FOUS !">Ils sont fous !</option>
-                    <option value="PERSONNE N'EN PARLE !">Personne n'en parle</option>
-                    <option value="HONTÉ !">Honteux !</option>
-                    <option value="RESTEZ FORTS !">Restez forts !</option>
-                    <option value="VOTRE PRÉSIDENT PRÉFÉRÉ !">Président préféré</option>
-                    <option value="DIEU BÉNISSE L'AMÉRIQUE !">Dieu bénisse l'Amérique</option>
-                </select>
+                <label>4. LE SLOGAN (LA FIN)</label>
+                <select id="s4" onchange="manualUpdate()"></select>
             </div>
         </div>
+
+        <div class="action-btns">
+            <button class="btn-generate" onclick="randomize()">Make it Great!</button>
+            <button class="btn-copy" onclick="copy()">Copier la Vérité</button>
+        </div>
     </div>
+</div>
 
-    <div class="buttons">
-        <button class="btn-random" onclick="randomize()">Aléatoire</button>
-        <button class="btn-copy" onclick="copyText()">Copier la phrase</button>
+<div class="ticker">
+    <div class="ticker-wrap">
+        <div class="ticker-item">BREAKING: POLLS AT 100% --- FAKE NEWS ARE CRYING --- HUGE WIN FOR AMERICA --- MAGA 2026 --- BEST ECONOMY EVER ---</div>
     </div>
+</div>
 
-    <script>
-        function updatePhrase() {
-            const p1 = document.getElementById('sel1').value;
-            const p2 = document.getElementById('sel2').value;
-            const p3 = document.getElementById('sel3').value;
-            const p4 = document.getElementById('sel4').value;
-            document.getElementById('output').innerText = `« ${p1} ${p2} ${p3} ${p4} »`;
-        }
+<script>
+const data = {
+    p1: [
+        "Personne ne connaît mieux le business que moi,", "Tout le monde le dit, je suis un génie très stable,", "J'ai construit des choses incroyables, les plus belles,", "Mes sondages sont les plus hauts de l'histoire,", "Regardez ce que j'ai fait avec l'économie, c'est un miracle,", "J'ai gagné deux fois, et la deuxième fois était encore mieux,", "Les experts disent que je suis le meilleur président depuis Lincoln,", "Je connais les frontières mieux que les généraux,", "Mon Oncle était un grand professeur au MIT, j'ai de bons gènes,", "J'ai un instinct incroyable pour ces choses-là,", "Personne n'a jamais été traité aussi injustement que moi,", "J'ai les meilleures propriétés, les meilleurs golfs du monde,", "On a reconstruit notre armée comme personne ne l'avait fait,", "J'ai écrit 'The Art of the Deal', c'est le livre numéro 1,", "Les dirigeants étrangers m'appellent pour me féliciter,", "C'est la plus grande audience de l'histoire des meetings,", "J'ai fait plus pour la communauté noire que n'importe qui,", "J'ai le plus gros cerveau, les gens n'en reviennent pas,", "On a eu les plus grandes baisses d'impôts jamais vues,", "Je pourrais arrêter n'importe quelle guerre en 24 heures,", "Même mes ennemis admettent que je suis fantastique,", "J'ai les meilleures mains, des mains magnifiques,", "Personne ne sait ce que je sais sur la technologie,", "J'ai créé des millions d'emplois, du jamais vu,", "Mon courage est reconnu par tout le monde, absolument tout le monde,"
+    ],
+    p2: [
+        "les Fake News Media sont les ennemis du peuple,", "les démocrates radicaux veulent tout brûler,", "le Deep State essaie de nous voler notre pays,", "la Chine nous a arnaqué pendant des décennies,", "ces gens de Washington qui ne savent pas travailler,", "les médias corrompus qui cachent la vérité,", "Sleepy Joe et sa bande de perdants,", "la gauche woke qui veut effacer notre histoire,", "les pays de l'OTAN qui ne paient pas leur part,", "les journalistes de CNN qui ne racontent que des mensonges,", "ceux qui ont truqué l'élection, nous le savons tous,", "les bureaucrates qui n'ont jamais rien construit,", "les activistes qui veulent abolir la police,", "le cartel des médias qui me déteste,", "les élites mondaines qui vous méprisent,", "les politiciens de bas étage comme 'Little Marco',", "les réseaux sociaux qui pratiquent la censure,", "les pays qui nous envoient leurs pires éléments,", "la machine corrompue de Hillary la crapule,", "les gens qui veulent ouvrir nos frontières à tout le monde,", "les juges partisans qui font de la politique,", "les banquiers de Wall Street qui m'ont trahi,", "le FBI qui a été infiltré par des radicaux,", "les gouverneurs faibles qui ne font rien,", "ceux qui disent que je ne suis pas un génie,"
+    ],
+    p3: [
+        "c'est une catastrophe totale pour l'Amérique !", "ils font une chasse aux sorcières jamais vue !", "c'est très injuste, vraiment terrible pour nous tous.", "ils n'ont aucune idée de ce qu'ils font, c'est pathétique.", "c'est une honte absolue, le monde entier rit de nous.", "ils détruisent le rêve américain sous nos yeux !", "c'est un désastre comme on n'en a jamais vu auparavant.", "ils veulent transformer notre pays en pays du tiers-monde.", "ils sont en panique totale parce que nous gagnons !", "c'est une ingérence électorale de bas niveau.", "ils sont très faibles et très stupides, franchement.", "c'est une insulte à notre Constitution et à nos lois.", "ils nous ont volé notre futur, mais on va le reprendre !", "c'est le plus grand crime de l'histoire de notre pays.", "ils préfèrent aider les étrangers que nos propres citoyens.", "c'est un spectacle triste et embarrassant pour nous.", "ils ne peuvent pas gagner honnêtement, alors ils trichent.", "c'est une attaque directe contre notre démocratie.", "ils dépensent votre argent comme s'il ne valait rien.", "c'est une trahison comme personne n'en a jamais vu.", "ils sont malades, ils ont besoin d'aide psychologique,", "c'est la fin de notre pays si on ne les arrête pas,", "ils ont transformé notre justice en arme politique,", "c'est une blague, une blague de très mauvais goût,", "ils ont peur de moi parce que je me bats pour vous !"
+    ],
+    p4: [
+        "Triste !", "MAGA !", "AMERICA FIRST !", "VRAIMENT TERRIBLE !", "ON VA GAGNER !", "INCROYABLE !", "TOTAL DÉSASTRE !", "TRÈS INJUSTE !", "GROS SUCCÈS !", "ILS SONT FOUS !", "PERSONNE N'EN PARLE !", "HONTÉ !", "RESTEZ FORTS !", "VOTRE PRÉSIDENT PRÉFÉRÉ !", "PROMESSE TENUE !", "DIEU BÉNISSE L'AMÉRIQUE !", "VOUS ALLEZ VOIR !", "C'EST ÉNORME !", "FAITES REVENIR L'AMÉRIQUE !", "UNE VICTOIRE HISTORIQUE !", "ILS N'ONT AUCUNE CHANCE !", "C'EST FINI POUR EUX !", "BOUM !", "GENIUS !", "LA VÉRITÉ SORTIRA !"
+    ]
+};
 
-        function randomize() {
-            const selects = document.querySelectorAll('select');
-            selects.forEach(sel => {
-                const options = sel.options;
-                sel.selectedIndex = Math.floor(Math.random() * options.length);
-            });
-            updatePhrase();
-        }
+// Remplir les menus déroulants
+function init() {
+    for(let i=1; i<=4; i++) {
+        const sel = document.getElementById('s'+i);
+        data['p'+i].forEach((txt, idx) => {
+            let opt = document.createElement('option');
+            opt.value = txt;
+            opt.text = txt.substring(0, 30) + "...";
+            sel.add(opt);
+        });
+    }
+    randomize();
+}
 
-        function copyText() {
-            const text = document.getElementById('output').innerText;
-            navigator.clipboard.writeText(text);
-            alert("Vérité copiée !");
-        }
+function manualUpdate() {
+    const t = `« ${document.getElementById('s1').value} ${document.getElementById('s2').value} ${document.getElementById('s3').value} ${document.getElementById('s4').value} »`;
+    document.getElementById('output').innerText = t;
+}
 
-        // Initialisation au chargement
-        window.onload = updatePhrase;
-    </script>
+function randomize() {
+    for(let i=1; i<=4; i++) {
+        const sel = document.getElementById('s'+i);
+        sel.selectedIndex = Math.floor(Math.random() * sel.length);
+    }
+    manualUpdate();
+}
+
+function copy() {
+    navigator.clipboard.writeText(document.getElementById('output').innerText);
+    alert("VÉRITÉ COPIÉE !");
+}
+
+window.onload = init;
+</script>
 </body>
 </html>
